@@ -3,7 +3,7 @@ from github import Github
 from github import GithubException
 import sys
 
-def isLicenseFilePresent(repo):
+def is_license_file_present(repo):
     try:
         license = repo.get_license()
         print("Found license for repository %s: %s" %(repo.name,license.license))
@@ -15,5 +15,5 @@ def isLicenseFilePresent(repo):
 g = Github()
 
 repo = g.get_repo(sys.argv[1])
-assert(isLicenseFilePresent(repo))
+assert(is_license_file_present(repo))
 
