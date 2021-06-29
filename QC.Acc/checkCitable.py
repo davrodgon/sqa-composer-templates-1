@@ -3,7 +3,7 @@ from github import Github
 from github import GithubException
 import sys
 
-def isPathInRepository(repo,path):
+def is_path_in_repo(repo,path):
     try:
         repo.get_contents(path)
         print("Found %s in repository %s"%(path,repo.name))
@@ -15,6 +15,6 @@ def isPathInRepository(repo,path):
 g = Github()
 repo = g.get_repo(sys.argv[1])
 
-assert(isPathInRepository(repo,"CITATION.json") or isPathInRepository(repo,"codemeta.json"))
+assert(is_path_in_repo(repo,"CITATION.json") or is_path_in_repo(repo,"codemeta.json"))
 
 
