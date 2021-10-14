@@ -25,6 +25,7 @@ The following table summarizes the properties that ought to be set in the tool d
 | ------------- | ---- | ----------- | -------- |
 | `docs` | string (url) | URL to the tool's official documentation | :heavy_check_mark: |
 | `docker` | object | See [Docker](#docker-docker-property) section | :heavy_check_mark: |
+| `executable` | string | Name of the executable. The tool's name is used by default.  <br>*This is only required when the executable to be used is different from the tool's name* | |
 | `args` | object | See [Arguments](#arguments-args-property) section | |
 
 ### Docker (`docker` property)
@@ -34,7 +35,8 @@ The `docker` property includes the information related to the availability of th
 | -------- | ---- | ----------- | -------- |
 | `image`| string (url) | Docker registry URL (defaults to Docker Hub) | :white_check_mark: (only if `dockerfile` is not defined |
 | `dockerfile`| string (path) | Relative path to the Dockerfile. This file shall be maintained in the present repository, under the criterion folder it applies to | :white_check_mark: (only if `image` is not defined |
-| `reviewed`| string (date) | Date the image was last used (format YYYY-MM-DD)| |
+| `reviewed`| string (date) | Date the image was last used (format YYYY-MM-DD)| :heavy_check_mark: |
+| `oneshot`| boolean | Set this value to `False` if you don't want the SQAaaS API to handle it as a oneshot image (i.e. adding a `sleep` command, default: `True`)| |
 
 ### Arguments (`args` property)
 The `args` property enables the definition of the arguments involved in the tool execution. The type of argument can fall into the three categories set out below:
